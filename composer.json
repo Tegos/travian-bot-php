@@ -1,0 +1,8 @@
+{
+  "name": "tegos/travian-bot",
+  "license": "MIT",
+  "require": {
+    "guzzlehttp/guzzle": "~6.0",
+    "paquettg/php-html-parser": "^1.7"
+  }
+}
