@@ -6,23 +6,47 @@
  * Time: 22:03
  */
 
+$start = microtime(true);
 require 'vendor/autoload.php';
 include(__DIR__ . '/classes/autoloader.php');
 
 new AutoLoader;
 
+$log = new PHPLogger(__DIR__ . "/data/logs");
+$tag = "TRAVIAN - CRON";
 
-$game = new Game();
+$log->i($tag, '---------------------');
+$log->i($tag, "Cron start");
 
-$auth = $game->makeAuth();
+try {
 
-sleep(3);
-if ($auth) {
-	$task = file_get_contents('task.json');
+	$rand = (float)rand() / (float)getrandmax();
+	if ($rand < 0.3)
+		$execute = false;
+	else
+		$execute = true;
 
-	$raidArray = $game->prepareFarmList();
-	if (count($raidArray)) {
-		$raids = $game->runFarmList($raidArray);
-		var_dump("{$raids} farm lists started.");
+	if (!$execute) {
+		throw new \Exception('Random break');
 	}
+
+	$game = new Game();
+
+	$auth = $game->makeAuth();
+
+	sleep(1);
+	if ($auth) {
+		$task = file_get_contents('task.json');
+
+		$raidArray = $game->prepareFarmList();
+		if (count($raidArray)) {
+			$raids = $game->runFarmList($raidArray);
+			var_dump("{$raids} farm lists started.");
+		}
+	}
+
+} catch (Exception $e) {
+	$log->e($tag, $e->getMessage());
 }
+
+$log->i($tag, 'Execute time: ' . round(microtime(true) - $start, 4) . ' с.');
