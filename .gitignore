@@ -57,3 +57,7 @@ composer.phar
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
 /classes/config.php
+/data/logs
+.idea/inspectionProfiles/
+.idea/php.xml
+.idea/vcs.xml

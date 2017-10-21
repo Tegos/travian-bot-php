@@ -21,7 +21,7 @@ $log->i($tag, "Cron start");
 try {
 
 	$rand = (float)rand() / (float)getrandmax();
-	if ($rand < 0.3)
+	if ($rand < 0.2)
 		$execute = false;
 	else
 		$execute = true;
@@ -29,6 +29,9 @@ try {
 	if (!$execute) {
 		throw new \Exception('Random break');
 	}
+
+	// random sleep
+	sleep(rand(3, 110));
 
 	$game = new Game();
 
@@ -49,4 +52,4 @@ try {
 	$log->e($tag, $e->getMessage());
 }
 
-$log->i($tag, 'Execute time: ' . round(microtime(true) - $start, 4) . ' с.');
+$log->i($tag, 'Execute time: ' . round(microtime(true) - $start, 4) . ' sec.');
