@@ -39,7 +39,7 @@ try {
 
 	sleep(1);
 	if ($auth) {
-		$task = file_get_contents('task.json');
+		$task = file_get_contents(__DIR__ . '/task.json');
 
 		$raidArray = $game->prepareFarmList();
 		if (count($raidArray)) {
