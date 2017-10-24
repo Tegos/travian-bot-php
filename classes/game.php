@@ -110,7 +110,7 @@ class Game
 	public function prepareFarmList()
 	{
 		try {
-			$this->setActiveVillageRequest();
+			//$this->setActiveVillageRequest();
 
 			$rallyPointFarmList = $this->client->get('/build.php?tt=99&id=39',
 				[
