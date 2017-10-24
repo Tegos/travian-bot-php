@@ -10,21 +10,31 @@ $start = microtime(true);
 require 'vendor/autoload.php';
 include(__DIR__ . '/classes/autoloader.php');
 
-new AutoLoader;
+new \AutoLoader;
 
-$log = new PHPLogger(__DIR__ . "/data/logs");
+$log = new \PHPLogger(__DIR__ . "/data/logs");
 $tag = "TRAVIAN - CRON";
 
 $log->i($tag, '---------------------');
 $log->i($tag, "Cron start");
 
 try {
+	$timeLondon = new \DateTimeZone('Europe/London');
+	$date = new \DateTime();
+	$date->setTimezone($timeLondon);
+	$hours = (int)$date->format('H');
+
+	echo $hours;
+	//echo $date->format('Y-m-d H:i:s');
+
+	die();
 
 	$rand = (float)rand() / (float)getrandmax();
-	if ($rand < 0.2)
+	if ($rand < 0.2) {
 		$execute = false;
-	else
+	} else {
 		$execute = true;
+	}
 
 	if (!$execute) {
 		throw new \Exception('Random break');
