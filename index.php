@@ -23,25 +23,28 @@ try {
 	$date = new \DateTime();
 	$date->setTimezone($timeLondon);
 	$hours = (int)$date->format('H');
+	$probability = 0.0;
 
-	echo $hours;
-	//echo $date->format('Y-m-d H:i:s');
-
-	die();
-
-	$rand = (float)rand() / (float)getrandmax();
-	if ($rand < 0.2) {
-		$execute = false;
-	} else {
-		$execute = true;
+	if ($hours < 12 || $hours > 22) {
+		$probability += 0.2;
 	}
 
-	if (!$execute) {
+
+	$log->i($tag, 'Game server time: ' . $date->format('d.m.Y H:i:s'));
+
+
+	$rand = (float)rand() / (float)getrandmax();
+
+	$probability += $rand;
+
+	$log->i($tag, 'Probability: ' . $probability);
+
+	if ($probability < 0.5) {
 		throw new \Exception('Random break');
 	}
 
 	// random sleep
-	sleep(rand(3, 110));
+	sleep(rand(30, 110));
 
 	$game = new Game();
 
