@@ -1,6 +1,23 @@
-[2017-10-21 21:07:09]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-21 21:07:09]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-21 21:07:34]: [TRAVIAN - CRON][INFO] - Execute time: 24.5204 с.
-[2017-10-21 21:14:09]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-21 21:14:09]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-21 21:14:33]: [TRAVIAN - CRON][INFO] - Execute time: 23.6253 с.
+[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:00:13
+[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Probability: 0.5679616687521
+[2017-10-28 12:02:01]: [TRAVIAN - CRON][INFO] - Execute time: 107.7657 sec.
+[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:05:29
+[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Probability: 0.82929166539506
+[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:11:33
+[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Probability: 1.0348338267159
+[2017-10-28 12:12:48]: [TRAVIAN - CRON][INFO] - Messages : 40 removed
+[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:16:44
+[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Probability: 1.1418317209387
+[2017-10-28 12:18:29]: [TRAVIAN - CRON][INFO] - Messages : 40 removed
+[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:59:20
+[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Probability: 0.76785790581988

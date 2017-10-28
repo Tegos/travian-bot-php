@@ -34,6 +34,7 @@ try {
 
 
 	$rand = (float)rand() / (float)getrandmax();
+	$randRemoveMessage = (float)rand() / (float)getrandmax();
 
 	$probability += $rand;
 
@@ -52,7 +53,12 @@ try {
 
 	sleep(1);
 	if ($auth) {
-		$task = file_get_contents(__DIR__ . '/task.json');
+
+
+		if ($randRemoveMessage > 0.5) {
+			$totalMessages = $game->clearReport();
+			$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
+		}
 
 		$raidArray = $game->prepareFarmList();
 		if (count($raidArray)) {

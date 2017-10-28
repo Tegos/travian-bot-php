@@ -10,7 +10,7 @@ use PHPHtmlParser\Dom;
 class Game
 {
 
-	public $client;
+	private $client;
 
 	protected $villageId = 3202;
 	protected $ajaxToken = '';
@@ -116,7 +116,7 @@ class Game
 				[
 					'timeout' => 5.0,
 					'headers' => [
-						'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+						'User-Agent' => Config::get('user_agent'),
 						'Accept' => '*/*',
 						'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
 					]
@@ -215,7 +215,7 @@ class Game
 					'method' => 'POST',
 					'url' => '/build.php?gid=16&tt=99',
 					'body' => $raidData
-				], true);
+				]);
 				$kRuns++;
 			}
 		} catch (\Exception $e) {
@@ -233,4 +233,99 @@ class Game
 			'url' => "/dorf1.php?newdid={$this->villageId}&"
 		]);
 	}
+
+	public function clearReport()
+	{
+		$totalMessages = 0;
+		// offensive - without losses
+		$reportsPage = $this->client->get('/berichte.php?t=1&opt=AAABAA==',
+			[
+				'timeout' => 5.0,
+				'headers' => [
+					'User-Agent' => Config::get('user_agent'),
+					'Accept' => '*/*',
+					'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
+				]
+			]
+		);
+
+		$dom = new Dom;
+		$dom->load($reportsPage->getBody());
+
+
+		$inputs = $dom->find('div.reports table#overview td.sel input');
+
+		$inputArray = [];
+
+		foreach ($inputs as $input) {
+			if ($input->getAttribute('name') && $input->getAttribute('value')) {
+				$inputArray[$input->getAttribute('name')] = $input->getAttribute('value');
+			}
+		}
+
+		$totalMessages += count($inputArray);
+
+		$postData = [
+			'page' => '1',
+			'del' => 'Delete',
+			's' => '1'
+		];
+
+		$postData = array_merge($postData, $inputArray);
+
+		$this->makeRequest([
+			'method' => 'POST',
+			'url' => '/berichte.php?t=1',
+			'body' => $postData
+		], true);
+
+		sleep(rand(1, 10));
+
+		// merchants
+		$reportsPage = $this->client->get('/berichte.php?t=4&opt=AAALAAwADQAOAA==',
+			[
+				'timeout' => 5.0,
+				'headers' => [
+					'User-Agent' => Config::get('user_agent'),
+					'Accept' => '*/*',
+					'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
+				]
+			]
+		);
+
+		$dom = new Dom;
+		$dom->load($reportsPage->getBody());
+
+
+		$inputs = $dom->find('div.reports table#overview td.sel input');
+
+		$inputArray = [];
+
+		foreach ($inputs as $input) {
+			if ($input->getAttribute('name') && $input->getAttribute('value')) {
+				$inputArray[$input->getAttribute('name')] = $input->getAttribute('value');
+			}
+		}
+
+		$totalMessages += count($inputArray);
+
+		$postData = [
+			'page' => '1',
+			'del' => 'Delete',
+			's' => '1'
+		];
+
+		$postData = array_merge($postData, $inputArray);
+
+		$this->makeRequest([
+			'method' => 'POST',
+			'url' => '/berichte.php?t=4',
+			'body' => $postData
+		], true);
+
+		return $totalMessages;
+
+	}
+
+
 }
