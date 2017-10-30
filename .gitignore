@@ -61,3 +61,4 @@ composer.phar
 .idea/inspectionProfiles/
 .idea/php.xml
 .idea/vcs.xml
+/data/data_runs

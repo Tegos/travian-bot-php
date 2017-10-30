@@ -12,7 +12,7 @@ include(__DIR__ . '/classes/autoloader.php');
 
 new \AutoLoader;
 
-$log = new \PHPLogger(__DIR__ . "/data/logs");
+$log = new \PHPLogger(__DIR__ . '/data/logs');
 $tag = "TRAVIAN - CRON";
 
 $log->i($tag, '---------------------');
@@ -40,8 +40,16 @@ try {
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.5) {
+	if ($probability < 0.3) {
 		throw new \Exception('Random break');
+	}
+
+	$runs = Helper::getTotalRuns();
+	$runs++;
+
+	if ($runs > 10) {
+		Helper::setTotalRuns(0);
+		throw new \Exception('Force break');
 	}
 
 	// random sleep
@@ -63,8 +71,11 @@ try {
 		$raidArray = $game->prepareFarmList();
 		if (count($raidArray)) {
 			$raids = $game->runFarmList($raidArray);
+			$log->i($tag, "{$raids} farm lists started.");
 			var_dump("{$raids} farm lists started.");
 		}
+
+		Helper::setTotalRuns($runs);
 	}
 
 } catch (Exception $e) {
