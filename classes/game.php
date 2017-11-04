@@ -169,7 +169,7 @@ class Game
 
 				$slotArray = $this->randomizeRaid($slotArray);
 
-				//var_dump($slotArray);
+				var_dump($slotArray);
 
 				$raidArray[] = array_merge($inputArray, $slotArray);
 			}
@@ -187,17 +187,26 @@ class Game
 	{
 		$countRaids = count($raidArray);
 
-		if ($countRaids > 3) {
-			$iteration = (int)($countRaids / 2);
-			for ($i = 0; $i < $iteration; $i++) {
-				shuffle($raidArray);
-				array_pop($raidArray);
-			}
-		}
-		shuffle($raidArray);
-		$result = $raidArray;
 
-		return $result;
+		$randItems = (int)($countRaids / 2);
+
+		if ($randItems < 1) {
+			$randItems = 1;
+		}
+
+		//var_dump($randItems);
+
+		$keys = array_rand($raidArray, $randItems);
+
+		if (!is_array($keys)) {
+			$keys = [$keys];
+		}
+
+		foreach ($keys as $key) {
+			unset($raidArray[$key]);
+		}
+
+		return $raidArray;
 	}
 
 	protected function getFarmListParamA()
