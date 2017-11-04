@@ -40,28 +40,26 @@ try {
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.3) {
+	if ($probability < 0.4) {
 		throw new \Exception('Random break');
 	}
 
 	$runs = Helper::getTotalRuns();
 	$runs++;
 
-	if ($runs > 10) {
+	if ($runs > 7) {
 		Helper::setTotalRuns(0);
 		throw new \Exception('Force break');
 	}
 
 	// random sleep
-	sleep(rand(30, 110));
+	sleep(rand(5, 200));
 
 	$game = new Game();
 
 	$auth = $game->makeAuth();
 
-	sleep(1);
 	if ($auth) {
-
 
 		if ($randRemoveMessage > 0.5) {
 			$totalMessages = $game->clearReport();

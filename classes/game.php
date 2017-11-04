@@ -167,6 +167,10 @@ class Game
 					$slotArray["slot[{$idSlot}]"] = 'on';
 				}
 
+				$slotArray = $this->randomizeRaid($slotArray);
+
+				//var_dump($slotArray);
+
 				$raidArray[] = array_merge($inputArray, $slotArray);
 			}
 
@@ -177,6 +181,23 @@ class Game
 			echo $e->getMessage();
 			return false;
 		}
+	}
+
+	protected function randomizeRaid(array $raidArray)
+	{
+		$countRaids = count($raidArray);
+
+		if ($countRaids > 3) {
+			$iteration = (int)($countRaids / 2);
+			for ($i = 0; $i < $iteration; $i++) {
+				shuffle($raidArray);
+				array_pop($raidArray);
+			}
+		}
+		shuffle($raidArray);
+		$result = $raidArray;
+
+		return $result;
 	}
 
 	protected function getFarmListParamA()
