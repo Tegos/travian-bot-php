@@ -62,3 +62,4 @@ composer.phar
 .idea/php.xml
 .idea/vcs.xml
 /data/data_runs
+/data/cookie_jar.txt

@@ -13,7 +13,7 @@ class AutoLoader
 		error_reporting(E_ALL);
 		define('DIR_CACHE', 'file/');
 		ini_set('memory_limit', '256M');
-		define('HOME', str_replace('class', '', __DIR__));
+		define('HOME', str_replace('classes', '', __DIR__));
 	}
 
 	private function loader($className)

@@ -53,7 +53,7 @@ try {
 	}
 
 	// random sleep
-	//sleep(rand(5, 200));
+	// sleep(rand(5, 150));
 
 	$game = new Game();
 

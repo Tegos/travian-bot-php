@@ -6,6 +6,7 @@ use GuzzleHttp\Psr7;
 use GuzzleHttp\Cookie\SetCookie as CookieParser;
 use GuzzleHttp\TransferStats;
 use PHPHtmlParser\Dom;
+use GuzzleHttp\Cookie\FileCookieJar;
 
 class Game
 {
@@ -14,14 +15,23 @@ class Game
 
 	protected $villageId = 3202;
 	protected $ajaxToken = '';
+	protected $player_uuid = '';
 
 	protected $baseUrl = 'https://ts80.travian.com';
 
+	private $cookieFile;
+
 	public function __construct()
 	{
+		$this->cookieFile = HOME . '/data/cookie_jar.txt';
+		//var_dump($this->cookieFile);
+		//die();
+
+		$cookieJar = new FileCookieJar($this->cookieFile, true);
+
 		$this->client = new Client(
 			[
-				'cookies' => true,
+				'cookies' => $cookieJar,
 				'base_uri' => $this->baseUrl,
 				'verify' => false
 			]
@@ -31,27 +41,71 @@ class Game
 
 	public function makeAuth()
 	{
+		$result = true;
+		$method = '';
+
 		try {
-			$response = $this->client->post('/dorf1.php',
+			$method = 'GET';
+			$response = $this->client->get('/dorf1.php',
 				[
 					'timeout' => 5.0,
 					'headers' => [
 						'User-Agent' => Config::get('user_agent'),
 						'Accept' => '*/*',
 						'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
-					],
-					'form_params' => [
-						'name' => Config::get('travian_login'),
-						'password' => Config::get('travian_password'),
-						's1' => 'submit',
-						'login' => time()
 					]
 				]
 			);
+
+			$this->setAjaxToken($response);
+
 		} catch (\Exception $e) {
-			return false;
+			$result = false;
 		}
 
+		if (!$this->player_uuid || !$result) {
+			try {
+				$method = 'POST';
+				$response = $this->client->post('/dorf1.php',
+					[
+						'timeout' => 5.0,
+						'headers' => [
+							'User-Agent' => Config::get('user_agent'),
+							'Accept' => '*/*',
+							'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
+						],
+						'form_params' => [
+							'name' => Config::get('travian_login'),
+							'password' => Config::get('travian_password'),
+							's1' => 'submit',
+							'login' => time()
+						]
+					]
+				);
+
+				$this->setAjaxToken($response);
+
+				$result = true;
+			} catch (\Exception $e) {
+				$result = false;
+			}
+		}
+
+		if ($this->player_uuid && $result) {
+			$result = true;
+		}
+
+
+		var_dump($method);
+		var_dump($this->player_uuid);
+		var_dump($this->ajaxToken);
+
+		//echo $response->getBody();
+		return $result;
+	}
+
+	private function setAjaxToken($response)
+	{
 		// set ajaxToken
 		$dom = new Dom;
 		$dom->setOptions([
@@ -68,10 +122,11 @@ class Game
 			if (trim($exp[0]) === 'ajaxToken') {
 				$this->ajaxToken = str_replace("'", '', trim($exp[1]));
 			}
+			// player_uuid
+			if (trim($exp[0]) === '_player_uuid') {
+				$this->player_uuid = str_replace("'", '', trim($exp[1]));
+			}
 		}
-
-		//echo $response->getBody();
-		return true;
 	}
 
 	protected function makeRequest($requestData, $debug = false)
