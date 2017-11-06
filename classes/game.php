@@ -220,9 +220,12 @@ class Game
 					$slotArray["slot[{$idSlot}]"] = 'on';
 				}
 
-				$slotArray = $this->randomizeRaid($slotArray);
+				$rand = (float)rand() / (float)getrandmax();
+				if ($rand > 0.5) {
+					$slotArray = $this->randomizeRaid($slotArray);
+				}
 
-				var_dump($slotArray);
+				//var_dump($slotArray);
 
 				$raidArray[] = array_merge($inputArray, $slotArray);
 			}

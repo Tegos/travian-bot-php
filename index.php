@@ -12,23 +12,13 @@ include(__DIR__ . '/classes/autoloader.php');
 
 new \AutoLoader;
 
-$action = 'default';
-if (isset($_GET['action'])) {
-	$action = $_GET['action'];
-} else {
-	parse_str($argv[1], $params);
-	if (isset($params['action'])) {
-		$action = $params['action'];
-	}
-}
-
 
 $log = new \PHPLogger(__DIR__ . '/data/logs');
 $tag = "TRAVIAN - CRON";
 
 $log->i($tag, '---------------------');
 $log->i($tag, "Cron start");
-$log->i($tag, "Action - {$action}");
+$log->i($tag, "Action - Farm");
 
 try {
 	$timeLondon = new \DateTimeZone('Europe/London');
@@ -55,12 +45,7 @@ try {
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	// for another action
-	if ($action !== 'default') {
-		$probability += 0.35;
-	}
-
-	if ($probability < 0.5) {
+	if ($probability < 0.4) {
 		throw new \Exception('Random break');
 	}
 
@@ -76,27 +61,22 @@ try {
 	sleep(rand(5, 150));
 
 	if ($auth) {
-		switch ($action) {
-			case 'default':
-				if ($randRemoveMessage > 0.5) {
-					$totalMessages = $game->clearReport();
-					$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
-				}
 
-				$raidArray = $game->prepareFarmList();
-				if (count($raidArray)) {
-					$raids = $game->runFarmList($raidArray);
-					$log->i($tag, "{$raids} farm lists started.");
-					var_dump("{$raids} farm lists started.");
-				}
-
-				Helper::setTotalRuns($runs);
-				break;
-
-			case 'cage':
-				$game->makeBidForCages();
-				break;
+		if ($randRemoveMessage > 0.5) {
+			$totalMessages = $game->clearReport();
+			$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
 		}
+
+		$raidArray = $game->prepareFarmList();
+		if (count($raidArray)) {
+			$raids = $game->runFarmList($raidArray);
+			$log->i($tag, "{$raids} farm lists started.");
+			var_dump("{$raids} farm lists started.");
+		}
+
+		Helper::setTotalRuns($runs);
+
+
 	}
 
 } catch (Exception $e) {
