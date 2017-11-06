@@ -486,9 +486,9 @@ class Game
 			];
 		}
 
-		foreach ($arrayBids as &$arrayBid) {
+		foreach ($arrayBids as $k => $arrayBid) {
 			$price = rand($arrayBid['silver'], $arrayBid['silver'] + $arrayBid['silver'] * 0.2);
-			$arrayBid['price'] = $price;
+			$arrayBids[$k]['price'] = $price;
 		}
 
 		$postData = [
@@ -497,16 +497,16 @@ class Game
 			'action' => 'buy'
 		];
 
+		var_dump($arrayBids);
+
 		try {
 			$kRuns = 0;
 			foreach ($arrayBids as $arrayBid) {
 
 				if ($arrayBid['bids'] < 1) {
+					$zParam = $this->getAuctionParamZ();
+					$arrayBid['z'] = $zParam;
 
-					if ($kRuns > 0) {
-						$zParam = $this->getAuctionParamZ();
-						$arrayBid['z'] = $zParam;
-					}
 
 					$postData = array_merge($postData,
 						[
