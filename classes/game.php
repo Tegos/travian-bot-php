@@ -24,8 +24,6 @@ class Game
 	public function __construct()
 	{
 		$this->cookieFile = HOME . '/data/cookie_jar.txt';
-		//var_dump($this->cookieFile);
-		//die();
 
 		$cookieJar = new FileCookieJar($this->cookieFile, true);
 
@@ -33,7 +31,8 @@ class Game
 			[
 				'cookies' => $cookieJar,
 				'base_uri' => $this->baseUrl,
-				'verify' => false
+				'verify' => false,
+				'delay' => 3000
 			]
 		);
 	}
@@ -94,7 +93,6 @@ class Game
 		if ($this->player_uuid && $result) {
 			$result = true;
 		}
-
 
 		var_dump($method);
 		var_dump($this->player_uuid);
@@ -270,7 +268,7 @@ class Game
 			[
 				'timeout' => 5.0,
 				'headers' => [
-					'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+					'User-Agent' => Config::get('user_agent'),
 					'Accept' => '*/*',
 					'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
 				]
@@ -410,6 +408,130 @@ class Game
 
 		return $totalMessages;
 
+	}
+
+	protected function getAuctionParamZ()
+	{
+		$auction = $this->client->get('/hero.php?t=4&action=buy&filter=9',
+			[
+				'timeout' => 5.0,
+				'headers' => [
+					'User-Agent' => Config::get('user_agent'),
+					'Accept' => '*/*',
+					'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
+				]
+			]
+		);
+
+		$dom = new Dom;
+		$dom->load($auction->getBody());
+
+		$table = $dom->find('#auction table tbody')[0];
+
+		$row = $table->find('tr')[0];
+
+		$link = $row->find('td.bid a');
+		$href = $link->getAttribute('href');
+		$href = str_replace('hero.php?', '', $href);
+		$href = html_entity_decode($href);
+
+		parse_str($href, $getArray);
+		$zParam = $getArray['z'];
+
+		return $zParam;
+	}
+
+	public function makeBidForCages()
+	{
+		// cage list
+		$cagePage = $this->client->get('/hero.php?t=4&action=buy&filter=9',
+			[
+				'timeout' => 5.0,
+				'headers' => [
+					'User-Agent' => Config::get('user_agent'),
+					'Accept' => '*/*',
+					'Accept-Language' => 'ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4,uk;q=0.2',
+				]
+			]
+		);
+
+		//echo $cagePage->getBody();
+
+		$dom = new Dom;
+		$dom->load($cagePage->getBody());
+		//$dom->firstChild()
+
+		$table = $dom->find('#auction table tbody')[0];
+
+		$arrayBids = [];
+
+		$rows = $table->find('tr');
+
+		foreach ($rows as $row) {
+			$description = trim($row->find('td.name')->text());
+			$link = $row->find('td.bid a');
+			$href = $link->getAttribute('href');
+			$href = str_replace('hero.php?', '', $href);
+			$href = html_entity_decode($href);
+
+			parse_str($href, $getArray);
+
+			$arrayBids[] = [
+				'description' => Helper::cleanString($description),
+				'bids' => (int)trim($row->find('td.bids')->text()),
+				'silver' => (int)trim($row->find('td.silver')->text()),
+				'bid' => trim($link->text()),
+				'a' => trim($getArray['a']),
+				'z' => trim($getArray['z'])
+			];
+		}
+
+		foreach ($arrayBids as &$arrayBid) {
+			$price = rand($arrayBid['silver'], $arrayBid['silver'] + $arrayBid['silver'] * 0.2);
+			$arrayBid['price'] = $price;
+		}
+
+		$postData = [
+			'page' => '1',
+			'filter' => '9',
+			'action' => 'buy'
+		];
+
+		try {
+			$kRuns = 0;
+			foreach ($arrayBids as $arrayBid) {
+
+				if ($arrayBid['bids'] < 1) {
+
+					if ($kRuns > 0) {
+						$zParam = $this->getAuctionParamZ();
+						$arrayBid['z'] = $zParam;
+					}
+
+					$postData = array_merge($postData,
+						[
+							'z' => $arrayBid['z'],
+							'a' => $arrayBid['a'],
+							'maxBid' => $arrayBid['price']
+						]
+					);
+
+					$this->makeRequest([
+						'method' => 'POST',
+						'url' => '/hero.php?t=4',
+						'body' => $postData
+					]);
+					$kRuns++;
+				}
+			}
+		} catch (\Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+
+		var_dump($kRuns);
+
+		return $kRuns;
 	}
 
 
