@@ -73,7 +73,7 @@ try {
 	}
 
 	// random sleep
-	//sleep(rand(5, 150));
+	sleep(rand(5, 150));
 
 	if ($auth) {
 		switch ($action) {
