@@ -21,6 +21,10 @@ $log->i($tag, "Cron start");
 $log->i($tag, "Action - Cage");
 
 try {
+	$timeLondon = new \DateTimeZone('Europe/London');
+	$date = new \DateTime();
+	$date->setTimezone($timeLondon);
+
 	$probability = 0.0;
 
 	$log->i($tag, 'Game server time: ' . $date->format('d.m.Y H:i:s'));
@@ -39,11 +43,16 @@ try {
 		throw new \Exception('Random break');
 	}
 
+	// auth
+	$game = new Game();
+	$auth = $game->makeAuth();
+
 	// random sleep
 	sleep(rand(10, 100));
 
 	if ($auth) {
-		$game->makeBidForCages();
+		$bids = $game->makeBidForCages();
+		$log->i($tag, "{$bids} bids.");
 	}
 
 } catch (Exception $e) {
