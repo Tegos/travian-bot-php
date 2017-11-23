@@ -49,4 +49,12 @@ final class Helper
 
 		return $s;
 	}
+
+	public static function randomSleep($min = 10, $max = 100)
+	{
+		if ($_SERVER['HTTP_HOST'] != 'travian.loc') {
+			sleep(rand($min, $max));
+		}
+
+	}
 }

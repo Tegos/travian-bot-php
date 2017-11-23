@@ -18,19 +18,14 @@ $tag = "TRAVIAN - CRON";
 
 $log->i($tag, '---------------------');
 $log->i($tag, "Cron start");
-$log->i($tag, "Action - Farm");
+$log->i($tag, "Action - Reports");
 
 try {
 	$timeLondon = new \DateTimeZone('Europe/London');
 	$date = new \DateTime();
 	$date->setTimezone($timeLondon);
-	$hours = (int)$date->format('H');
+
 	$probability = 0.0;
-
-
-	if ($hours < 12 || $hours > 22) {
-		$probability += 0.2;
-	}
 
 	$log->i($tag, 'Game server time: ' . $date->format('d.m.Y H:i:s'));
 
@@ -39,38 +34,26 @@ try {
 	$auth = $game->makeAuth();
 
 	$rand = (float)rand() / (float)getrandmax();
-	$randRemoveMessage = (float)rand() / (float)getrandmax();
 
 	$probability += $rand;
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.4) {
+	if ($probability < 0.5) {
 		throw new \Exception('Random break');
 	}
 
-	$runs = Helper::getTotalRuns();
-
-
-	if ($runs > 7) {
-		Helper::setTotalRuns(0);
-		throw new \Exception('Force break');
-	}
+	// auth
+	$game = new Game();
+	$auth = $game->makeAuth();
 
 	// random sleep
-	sleep(rand(5, 150));
+	//sleep(rand(10, 100));
+	Helper::randomSleep(10, 100);
 
 	if ($auth) {
-
-		$raidArray = $game->prepareFarmList();
-		if (count($raidArray)) {
-			$raids = $game->runFarmList($raidArray);
-			$log->i($tag, "{$raids} farm lists started.");
-			var_dump("{$raids} farm lists started.");
-		}
-
-		$runs++;
-		Helper::setTotalRuns($runs);
+		$totalMessages = $game->clearReport();
+		$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
 	}
 
 } catch (Exception $e) {

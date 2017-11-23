@@ -40,6 +40,7 @@ class Game
 
 	public function makeAuth()
 	{
+		set_time_limit(900); // 15min
 		$result = true;
 		$method = '';
 
@@ -95,8 +96,8 @@ class Game
 		}
 
 		var_dump($method);
-		var_dump($this->player_uuid);
-		var_dump($this->ajaxToken);
+		//var_dump($this->player_uuid);
+		//var_dump($this->ajaxToken);
 
 		//echo $response->getBody();
 		return $result;
