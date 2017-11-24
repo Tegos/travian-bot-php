@@ -45,6 +45,19 @@ final class Helper
 		return $list;
 	}
 
+	public static function getGameAction()
+	{
+		try {
+			$file = __DIR__ . '/../data/actions';
+			$content = json_decode(file_get_contents($file), true);
+
+		} catch (\Exception $exception) {
+			$content = [];
+		}
+		$list = (array)$content;
+		return $list;
+	}
+
 	public static function cleanString($string)
 	{
 		$s = trim($string);

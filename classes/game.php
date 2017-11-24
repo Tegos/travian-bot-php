@@ -543,4 +543,44 @@ class Game
 	}
 
 
+	public function makeRandomActions()
+	{
+		try {
+			$kRuns = 0;
+
+			$actions = Helper::getGameAction();
+			$count = count($actions);
+			$min = 1;
+			$max = 4;
+			if ($max > $count) {
+				$max = $count;
+			}
+			$num = rand($min, $max);
+
+			$result = [];
+			$randomAction = array_rand($actions, $num);
+			if (!is_array($randomAction)) {
+				$randomAction = [$randomAction];
+			}
+			foreach ($randomAction as $k) {
+				$result[] = $actions[$k];
+			}
+
+			if (count($result)) {
+				foreach ($result as $link) {
+					$this->makeRequest([
+						'method' => 'GET',
+						'url' => $link
+					]);
+					$kRuns++;
+				}
+			}
+		} catch (\Exception $e) {
+			echo $e->getMessage();
+			return false;
+		}
+
+		return $kRuns;
+	}
+
 }

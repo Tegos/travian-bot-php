@@ -51,6 +51,8 @@ try {
 	Helper::randomSleep(10, 100);
 
 	if ($auth) {
+		$game->makeRandomActions();
+
 		$totalMessages = $game->clearReport();
 		$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
 	}
