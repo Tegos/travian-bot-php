@@ -48,7 +48,6 @@ try {
 	$auth = $game->makeAuth();
 
 	// random sleep
-	//sleep(rand(10, 100));
 	Helper::randomSleep(10, 100);
 
 	if ($auth) {

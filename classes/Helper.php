@@ -32,6 +32,19 @@ final class Helper
 		fclose($fh);
 	}
 
+	public static function getAllowedFarmList()
+	{
+		try {
+			$file = __DIR__ . '/../data/allowed_farmList';
+			$content = json_decode(file_get_contents($file), true);
+
+		} catch (\Exception $exception) {
+			$content = [];
+		}
+		$list = (array)$content;
+		return $list;
+	}
+
 	public static function cleanString($string)
 	{
 		$s = trim($string);
@@ -52,8 +65,11 @@ final class Helper
 
 	public static function randomSleep($min = 10, $max = 100)
 	{
+		var_dump($_SERVER['HTTP_HOST']);
 		if ($_SERVER['HTTP_HOST'] != 'travian.loc') {
 			sleep(rand($min, $max));
+		} else {
+			var_dump('No sleep');
 		}
 
 	}

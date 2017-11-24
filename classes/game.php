@@ -291,8 +291,12 @@ class Game
 	{
 		try {
 			$kRuns = 0;
-			foreach ($raidArray as $raidData) {
 
+			$allowed = Helper::getAllowedFarmList();
+			foreach ($raidArray as $raidData) {
+				if (!in_array($raidData['lid'], $allowed)) {
+					continue;
+				}
 				if ($kRuns > 0) {
 					$aParam = $this->getFarmListParamA();
 					$raidData['a'] = $aParam;

@@ -58,15 +58,17 @@ try {
 	}
 
 	// random sleep
-	sleep(rand(5, 150));
+	Helper::randomSleep(5, 150);
 
 	if ($auth) {
 
 		$raidArray = $game->prepareFarmList();
 		if (count($raidArray)) {
+			$allowed = implode(',', Helper::getAllowedFarmList());
 			$raids = $game->runFarmList($raidArray);
 			$log->i($tag, "{$raids} farm lists started.");
-			var_dump("{$raids} farm lists started.");
+
+			$log->i($tag, "Allowed {$allowed}.");
 		}
 
 		$runs++;
