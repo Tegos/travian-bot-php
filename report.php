@@ -39,7 +39,7 @@ try {
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.5) {
+	if ($probability < 0.1) {
 		throw new \Exception('Random break');
 	}
 
