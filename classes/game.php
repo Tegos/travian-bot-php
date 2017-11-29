@@ -222,7 +222,7 @@ class Game
 				}
 
 				$rand = (float)rand() / (float)getrandmax();
-				if ($rand > 0.5) {
+				if ($rand > 0.35) {
 					$slotArray = $this->randomizeRaid($slotArray);
 				}
 
@@ -250,8 +250,6 @@ class Game
 		if ($randItems < 1) {
 			$randItems = 1;
 		}
-
-		//var_dump($randItems);
 
 		$keys = array_rand($raidArray, $randItems);
 
