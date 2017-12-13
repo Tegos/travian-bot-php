@@ -28,8 +28,8 @@ try {
 	$probability = 0.0;
 
 
-	if ($hours < 12 || $hours > 22) {
-		$probability += 0.2;
+	if ($hours > 0 && $hours < 5) {
+		$probability -= 0.1;
 	}
 
 	$log->i($tag, 'Game server time: ' . $date->format('d.m.Y H:i:s'));
@@ -41,18 +41,19 @@ try {
 	$rand = (float)rand() / (float)getrandmax();
 	$randRemoveMessage = (float)rand() / (float)getrandmax();
 
-	$probability += $rand;
+	$little_rand = (rand(5, 30) / 100);
+	$probability += ($rand + $little_rand);
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.4) {
+	if ($probability < 0.19) {
 		throw new \Exception('Random break');
 	}
 
 	$runs = Helper::getTotalRuns();
 
 
-	if ($runs > 7) {
+	if ($runs > rand(5, 7)) {
 		Helper::setTotalRuns(0);
 		throw new \Exception('Force break');
 	}

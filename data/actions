@@ -38,5 +38,8 @@
 "/position_details.php?x=-23&y=25",
 "/berichte.php",
 "/berichte.php?t=6",
+"/spieler.php",
+"/spieler.php?uid=5418",
+"/karte.php?x=21&y=48",
 "/"
 ]
