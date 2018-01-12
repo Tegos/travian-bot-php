@@ -53,7 +53,12 @@ try {
 	if ($auth) {
 		$game->makeRandomActions();
 
-		$totalMessages = $game->clearReport();
+		$totalMessages = 0;
+		$totalMessages += $game->clearReport();
+		$totalMessages += $game->clearReport();
+		$totalMessages += $game->clearReport();
+
+
 		$log->i($tag, 'Messages : ' . $totalMessages . ' removed');
 	}
 

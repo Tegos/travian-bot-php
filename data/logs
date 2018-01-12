@@ -1,194 +1,38 @@
-[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:00:13
-[2017-10-28 12:00:13]: [TRAVIAN - CRON][INFO] - Probability: 0.5679616687521
-[2017-10-28 12:02:01]: [TRAVIAN - CRON][INFO] - Execute time: 107.7657 sec.
-[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:05:29
-[2017-10-28 12:05:29]: [TRAVIAN - CRON][INFO] - Probability: 0.82929166539506
-[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:11:33
-[2017-10-28 12:11:33]: [TRAVIAN - CRON][INFO] - Probability: 1.0348338267159
-[2017-10-28 12:12:48]: [TRAVIAN - CRON][INFO] - Messages : 40 removed
-[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:16:44
-[2017-10-28 12:16:44]: [TRAVIAN - CRON][INFO] - Probability: 1.1418317209387
-[2017-10-28 12:18:29]: [TRAVIAN - CRON][INFO] - Messages : 40 removed
-[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Game server time: 28.10.2017 10:59:20
-[2017-10-28 12:59:20]: [TRAVIAN - CRON][INFO] - Probability: 0.76785790581988
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:03:09
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][INFO] - Probability: 0.40900906399731
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-10-30 23:03:09]: [TRAVIAN - CRON][INFO] - Execute time: 0.3126 sec.
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:03:13
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][INFO] - Probability: 0.40162358470412
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-10-30 23:03:13]: [TRAVIAN - CRON][INFO] - Execute time: 0.0604 sec.
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:03:14
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][INFO] - Probability: 0.4699240089114
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-10-30 23:03:14]: [TRAVIAN - CRON][INFO] - Execute time: 0.0616 sec.
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:03:15
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][INFO] - Probability: 0.23499252296518
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-10-30 23:03:15]: [TRAVIAN - CRON][INFO] - Execute time: 0.0711 sec.
-[2017-10-30 23:03:16]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:03:16]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:03:16]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:03:16
-[2017-10-30 23:03:16]: [TRAVIAN - CRON][INFO] - Probability: 0.91170995208594
-[2017-10-30 23:04:19]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-10-30 23:04:19]: [TRAVIAN - CRON][INFO] - Execute time: 62.9607 sec.
-[2017-10-30 23:23:15]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-30 23:23:15]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-30 23:23:15]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 20:23:15
-[2017-10-30 23:23:15]: [TRAVIAN - CRON][INFO] - Probability: 0.7535935544908
-[2017-10-30 23:24:07]: [TRAVIAN - CRON][INFO] - Messages : 22 removed
-[2017-10-30 23:24:07]: [TRAVIAN - CRON][INFO] - Execute time: 52.6514 sec.
-[2017-10-31 01:56:24]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-31 01:56:24]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-31 01:56:24]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 22:56:24
-[2017-10-31 01:56:24]: [TRAVIAN - CRON][INFO] - Probability: 0.38547929319132
-[2017-10-31 01:57:42]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-10-31 01:57:42]: [TRAVIAN - CRON][INFO] - Execute time: 78.1293 sec.
-[2017-10-31 02:18:43]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-31 02:18:43]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-31 02:18:43]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 23:18:43
-[2017-10-31 02:18:44]: [TRAVIAN - CRON][INFO] - Probability: 0.3146885586108
-[2017-10-31 02:20:19]: [TRAVIAN - CRON][INFO] - Messages : 31 removed
-[2017-10-31 02:20:33]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-10-31 02:20:33]: [TRAVIAN - CRON][INFO] - Execute time: 109.4758 sec.
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 23:23:36
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][INFO] - Probability: 0.6254280220954
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][ERROR] - Force break
-[2017-10-31 02:23:36]: [TRAVIAN - CRON][INFO] - Execute time: 0.1006 sec.
-[2017-10-31 02:23:53]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-10-31 02:23:53]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-10-31 02:23:53]: [TRAVIAN - CRON][INFO] - Game server time: 30.10.2017 23:23:53
-[2017-10-31 02:23:53]: [TRAVIAN - CRON][INFO] - Probability: 0.60681173131504
-[2017-10-31 02:25:26]: [TRAVIAN - CRON][INFO] - Messages : 0 removed
-[2017-10-31 02:25:48]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-10-31 02:25:48]: [TRAVIAN - CRON][INFO] - Execute time: 114.649 sec.
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:29:13
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][INFO] - Probability: 0.092715231788079
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:29:13]: [TRAVIAN - CRON][INFO] - Execute time: 0.397 sec.
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:29:16
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][INFO] - Probability: 0.0042725913266396
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:29:16]: [TRAVIAN - CRON][INFO] - Execute time: 0.1111 sec.
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:29:17
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][INFO] - Probability: 0.06183050019837
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:29:17]: [TRAVIAN - CRON][INFO] - Execute time: 0.0984 sec.
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:29:19
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][INFO] - Probability: 0.1989806817835
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:29:19]: [TRAVIAN - CRON][INFO] - Execute time: 0.1013 sec.
-[2017-11-04 17:29:20]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:29:20]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:29:20]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:29:20
-[2017-11-04 17:29:20]: [TRAVIAN - CRON][INFO] - Probability: 0.44306772057253
-[2017-11-04 17:31:55]: [TRAVIAN - CRON][INFO] - Messages : 40 removed
-[2017-11-04 17:32:11]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 17:32:11]: [TRAVIAN - CRON][INFO] - Execute time: 171.0274 sec.
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:32:51
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][INFO] - Probability: 0.28699606311228
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:32:51]: [TRAVIAN - CRON][INFO] - Execute time: 0.1215 sec.
-[2017-11-04 17:32:53]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:32:53]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:32:53]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:32:53
-[2017-11-04 17:32:53]: [TRAVIAN - CRON][INFO] - Probability: 0.49690237128819
-[2017-11-04 17:35:21]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 17:35:21]: [TRAVIAN - CRON][INFO] - Execute time: 148.4444 sec.
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:45:15
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][INFO] - Probability: 0.20395519882809
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:45:15]: [TRAVIAN - CRON][INFO] - Execute time: 0.1028 sec.
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:45:16
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][INFO] - Probability: 0.074739829706717
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 17:45:16]: [TRAVIAN - CRON][INFO] - Execute time: 0.0977 sec.
-[2017-11-04 17:45:17]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 17:45:17]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 17:45:17]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 14:45:17
-[2017-11-04 17:45:17]: [TRAVIAN - CRON][INFO] - Probability: 0.47630237739189
-[2017-11-04 17:46:45]: [TRAVIAN - CRON][INFO] - Messages : 29 removed
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 18:51:16
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][INFO] - Probability: 0.30686361278115
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 21:51:16]: [TRAVIAN - CRON][INFO] - Execute time: 0.4091 sec.
-[2017-11-04 21:51:19]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 21:51:19]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 21:51:19]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 18:51:19
-[2017-11-04 21:51:19]: [TRAVIAN - CRON][INFO] - Probability: 0.81731620227668
-[2017-11-04 21:54:54]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 21:54:54]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 21:54:55]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 18:54:55
-[2017-11-04 21:54:55]: [TRAVIAN - CRON][INFO] - Probability: 0.83498641926328
-[2017-11-04 21:55:11]: [TRAVIAN - CRON][INFO] - Messages : 17 removed
-[2017-11-04 21:55:31]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 21:55:31]: [TRAVIAN - CRON][INFO] - Execute time: 36.7598 sec.
-[2017-11-04 22:15:12]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 22:15:12]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 22:15:12]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 19:15:12
-[2017-11-04 22:15:12]: [TRAVIAN - CRON][INFO] - Probability: 0.69188512833033
-[2017-11-04 22:15:34]: [TRAVIAN - CRON][INFO] - Messages : 6 removed
-[2017-11-04 22:15:56]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 22:15:56]: [TRAVIAN - CRON][INFO] - Execute time: 44.4102 sec.
-[2017-11-04 22:17:47]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 22:17:47]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 22:17:47]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 19:17:47
-[2017-11-04 22:17:47]: [TRAVIAN - CRON][INFO] - Probability: 0.5155796990875
-[2017-11-04 22:18:09]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 22:18:09]: [TRAVIAN - CRON][INFO] - Execute time: 22.5912 sec.
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 19:21:08
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][INFO] - Probability: 0.19028290658284
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][ERROR] - Random break
-[2017-11-04 22:21:08]: [TRAVIAN - CRON][INFO] - Execute time: 0.1671 sec.
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 19:21:10
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][INFO] - Probability: 0.63921018097476
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][ERROR] - Force break
-[2017-11-04 22:21:10]: [TRAVIAN - CRON][INFO] - Execute time: 0.0957 sec.
-[2017-11-04 22:21:14]: [TRAVIAN - CRON][INFO] - ---------------------
-[2017-11-04 22:21:14]: [TRAVIAN - CRON][INFO] - Cron start
-[2017-11-04 22:21:14]: [TRAVIAN - CRON][INFO] - Game server time: 04.11.2017 19:21:14
-[2017-11-04 22:21:14]: [TRAVIAN - CRON][INFO] - Probability: 0.74388866847743
-[2017-11-04 22:21:34]: [TRAVIAN - CRON][INFO] - Messages : 3 removed
-[2017-11-04 22:21:53]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
-[2017-11-04 22:21:53]: [TRAVIAN - CRON][INFO] - Execute time: 38.2963 sec.
+[2017-12-26 20:43:10]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-12-26 20:43:10]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-12-26 20:43:10]: [TRAVIAN - CRON][INFO] - Action - Farm
+[2017-12-26 20:43:10]: [TRAVIAN - CRON][INFO] - Game server time: 26.12.2017 17:43:10
+[2017-12-26 20:43:26]: [TRAVIAN - CRON][INFO] - Probability: 0.7122540971099
+[2017-12-26 20:44:52]: [TRAVIAN - CRON][INFO] - 4 farm lists started.
+[2017-12-26 20:44:52]: [TRAVIAN - CRON][INFO] - Allowed 821,710,712,626,702.
+[2017-12-26 20:44:52]: [TRAVIAN - CRON][INFO] - Execute time: 101.6573 sec.
+[2017-12-26 20:53:31]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-12-26 20:53:31]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-12-26 20:53:31]: [TRAVIAN - CRON][INFO] - Action - Farm
+[2017-12-26 20:53:31]: [TRAVIAN - CRON][INFO] - Game server time: 26.12.2017 17:53:31
+[2017-12-26 20:53:35]: [TRAVIAN - CRON][INFO] - Probability: 0.18151463362529
+[2017-12-26 20:53:35]: [TRAVIAN - CRON][ERROR] - Random break
+[2017-12-26 20:53:35]: [TRAVIAN - CRON][INFO] - Execute time: 4.2109 sec.
+[2017-12-26 20:55:28]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-12-26 20:55:28]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-12-26 20:55:28]: [TRAVIAN - CRON][INFO] - Action - Farm
+[2017-12-26 20:55:28]: [TRAVIAN - CRON][INFO] - Game server time: 26.12.2017 17:55:28
+[2017-12-26 20:55:32]: [TRAVIAN - CRON][INFO] - Probability: 0.44753501998962
+[2017-12-26 20:57:30]: [TRAVIAN - CRON][INFO] - 6 farm lists started.
+[2017-12-26 20:57:30]: [TRAVIAN - CRON][INFO] - Allowed 702,710,626,876,840,821.
+[2017-12-26 20:57:30]: [TRAVIAN - CRON][INFO] - Execute time: 122.302 sec.
+[2017-12-26 21:06:36]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-12-26 21:06:36]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-12-26 21:06:36]: [TRAVIAN - CRON][INFO] - Action - Farm
+[2017-12-26 21:06:36]: [TRAVIAN - CRON][INFO] - Game server time: 26.12.2017 18:06:36
+[2017-12-26 21:06:40]: [TRAVIAN - CRON][INFO] - Probability: 0.57562150944548
+[2017-12-26 21:08:34]: [TRAVIAN - CRON][INFO] - 6 farm lists started.
+[2017-12-26 21:08:34]: [TRAVIAN - CRON][INFO] - Allowed 702,710,626,876,840,821.
+[2017-12-26 21:08:34]: [TRAVIAN - CRON][INFO] - Execute time: 118.6211 sec.
+[2017-12-26 21:14:58]: [TRAVIAN - CRON][INFO] - ---------------------
+[2017-12-26 21:14:58]: [TRAVIAN - CRON][INFO] - Cron start
+[2017-12-26 21:14:58]: [TRAVIAN - CRON][INFO] - Action - Farm
+[2017-12-26 21:14:58]: [TRAVIAN - CRON][INFO] - Game server time: 26.12.2017 18:14:58
+[2017-12-26 21:15:03]: [TRAVIAN - CRON][INFO] - Probability: 0.53524521622364
+[2017-12-26 21:15:03]: [TRAVIAN - CRON][ERROR] - Force break
+[2017-12-26 21:15:03]: [TRAVIAN - CRON][INFO] - Execute time: 4.1556 sec.

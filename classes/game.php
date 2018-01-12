@@ -195,6 +195,15 @@ class Game
 					}
 				}
 
+				$param_sort = '';
+				$param_direction = '';
+
+				$rand = (float)rand() / (float)getrandmax();
+				if ($rand > 0.3) {
+					$param_sort = 'lastRaid';
+					$param_direction = 'asc';
+				}
+
 
 				$slotRow = $this->client->post('/ajax.php?cmd=raidListSlots',
 					[
@@ -207,7 +216,9 @@ class Game
 						'form_params' => [
 							'cmd' => 'raidListSlots',
 							'lid' => $inputArray['lid'],
-							'ajaxToken' => $this->ajaxToken
+							'ajaxToken' => $this->ajaxToken,
+							'sort' => $param_sort,
+							'direction' => $param_direction
 						]
 					]
 				);
@@ -215,16 +226,18 @@ class Game
 				$resultJson = json_decode($slotRow->getBody()->getContents(), true);
 				$detailSlots = $resultJson['response']['data']['list']['slots'];
 
+				//var_dump($detailSlots);
+
 				$slotArray = [];
 
 				foreach ($detailSlots as $idSlot => $slot) {
 					$slotArray["slot[{$idSlot}]"] = 'on';
 				}
 
-				$rand = (float)rand() / (float)getrandmax();
-				if ($rand > 0.5) {
-					$slotArray = $this->randomizeRaid($slotArray);
-				}
+//				$rand = (float)rand() / (float)getrandmax();
+//				if ($rand > 0.5) {
+//					$slotArray = $this->randomizeRaid($slotArray);
+//				}
 
 				//var_dump($slotArray);
 
