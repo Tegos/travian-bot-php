@@ -62,7 +62,7 @@ try {
 	Helper::randomSleep(5, 150);
 
 	if ($auth) {
-		$game->makeRandomActions();
+		//$game->makeRandomActions();
 		$raidArray = $game->prepareFarmList();
 		if (count($raidArray)) {
 			$allowed = implode(',', Helper::getAllowedFarmList());

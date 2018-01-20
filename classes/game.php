@@ -96,11 +96,37 @@ class Game
 		}
 
 		var_dump($method);
-		//var_dump($this->player_uuid);
-		//var_dump($this->ajaxToken);
+		var_dump($this->player_uuid);
+		var_dump($this->ajaxToken);
 
 		//echo $response->getBody();
 		return $result;
+	}
+
+
+	private function setAjaxTokenOld($response)
+	{
+		// set ajaxToken
+		$dom = new Dom;
+		$dom->setOptions([
+			'removeScripts' => false,
+		]);
+		$dom->load($response->getBody());
+
+		$script = $dom->find('script')[0]->text();
+		$script = str_replace('window.', '', $script);
+		$vars = explode(';', trim($script));
+
+		foreach ($vars as $var) {
+			$exp = explode('=', $var);
+			if (trim($exp[0]) === 'ajaxToken') {
+				$this->ajaxToken = str_replace("'", '', trim($exp[1]));
+			}
+			// player_uuid
+			if (trim($exp[0]) === '_player_uuid') {
+				$this->player_uuid = str_replace("'", '', trim($exp[1]));
+			}
+		}
 	}
 
 	private function setAjaxToken($response)
@@ -126,6 +152,31 @@ class Game
 				$this->player_uuid = str_replace("'", '', trim($exp[1]));
 			}
 		}
+
+		$text = $response->getBody();
+		$data = explode("\n", $text);
+
+
+		$length = count($data);
+		for ($i = 0; $i < $length; $i++) {
+			$line = $data[$i];
+			$pos = strpos($line, 'Travian.beadiestWashoutWeedy');
+			if ($pos !== false) {
+				$token = trim($data[$i + 1]);
+				$token = str_replace("'", '', $token);
+				$token = str_replace('return', '', $token);
+				$token = str_replace(';', '', $token);
+				$token = trim($token);
+				break;
+			}
+		}
+
+		if (isset($token)) {
+			if ($token) {
+				$this->ajaxToken = $token;
+			}
+		}
+		//die();
 	}
 
 	protected function makeRequest($requestData, $debug = false)
@@ -224,22 +275,15 @@ class Game
 				);
 
 				$resultJson = json_decode($slotRow->getBody()->getContents(), true);
-				$detailSlots = $resultJson['response']['data']['list']['slots'];
 
-				//var_dump($detailSlots);
+
+				$detailSlots = $resultJson['response']['data']['list']['slots'];
 
 				$slotArray = [];
 
 				foreach ($detailSlots as $idSlot => $slot) {
 					$slotArray["slot[{$idSlot}]"] = 'on';
 				}
-
-//				$rand = (float)rand() / (float)getrandmax();
-//				if ($rand > 0.5) {
-//					$slotArray = $this->randomizeRaid($slotArray);
-//				}
-
-				//var_dump($slotArray);
 
 				$raidArray[] = array_merge($inputArray, $slotArray);
 			}
@@ -305,6 +349,9 @@ class Game
 	{
 		try {
 			$kRuns = 0;
+
+			// todo need check
+			shuffle($raidArray);
 
 			$allowed = Helper::getAllowedFarmList();
 			foreach ($raidArray as $raidData) {
