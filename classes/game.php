@@ -351,7 +351,11 @@ class Game
 			$kRuns = 0;
 
 			// todo need check
-			shuffle($raidArray);
+			$rand = (float)rand() / (float)getrandmax();
+			if ($rand > 0.3) {
+				shuffle($raidArray);
+			}
+
 
 			$allowed = Helper::getAllowedFarmList();
 			foreach ($raidArray as $raidData) {
