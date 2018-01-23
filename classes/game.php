@@ -15,6 +15,7 @@ class Game
 
 	protected $villageId = 3202;
 	protected $ajaxToken = '';
+	protected $ajaxTokenNew = '';
 	protected $player_uuid = '';
 
 	protected $baseUrl = 'https://ts80.travian.com';
@@ -155,14 +156,17 @@ class Game
 
 		$text = $response->getBody();
 		$data = explode("\n", $text);
+		//var_dump($data);
+		//die();
 
-
+		$search = 'Travian.Templates = {};';
+		$nextLineAfterSearch = 3;
 		$length = count($data);
 		for ($i = 0; $i < $length; $i++) {
 			$line = $data[$i];
-			$pos = strpos($line, 'Travian.beadiestWashoutWeedy');
+			$pos = strpos($line, $search);
 			if ($pos !== false) {
-				$token = trim($data[$i + 1]);
+				$token = trim($data[$i + $nextLineAfterSearch]);
 				$token = str_replace("'", '', $token);
 				$token = str_replace('return', '', $token);
 				$token = str_replace(';', '', $token);
@@ -170,6 +174,10 @@ class Game
 				break;
 			}
 		}
+
+
+		//var_dump($token);
+		//die();
 
 		if (isset($token)) {
 			if ($token) {
