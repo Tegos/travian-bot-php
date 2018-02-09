@@ -46,14 +46,14 @@ try {
 
 	$log->i($tag, 'Probability: ' . $probability);
 
-	if ($probability < 0.19) {
+	if ($probability < 0.1) {
 		throw new \Exception('Random break');
 	}
 
 	$runs = Helper::getTotalRuns();
 
 
-	if ($runs > rand(5, 7)) {
+	if ($runs > 4) {
 		Helper::setTotalRuns(0);
 		throw new \Exception('Force break');
 	}
