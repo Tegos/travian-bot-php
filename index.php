@@ -53,7 +53,7 @@ try {
 	$runs = Helper::getTotalRuns();
 
 
-	if ($runs > 4) {
+	if ($runs > rand(5,9)) {
 		Helper::setTotalRuns(0);
 		throw new \Exception('Force break');
 	}

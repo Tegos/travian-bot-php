@@ -258,7 +258,7 @@ class Game
 				$param_direction = '';
 
 				$rand = (float)rand() / (float)getrandmax();
-				if ($rand > 0.3) {
+				if ($rand > 0.55) {
 					$param_sort = 'lastRaid';
 					$param_direction = 'asc';
 				}
@@ -360,7 +360,7 @@ class Game
 
 			// todo need check
 			$rand = (float)rand() / (float)getrandmax();
-			if ($rand > 0.3) {
+			if ($rand > 0.55) {
 				shuffle($raidArray);
 			}
 
@@ -443,7 +443,7 @@ class Game
 			'body' => $postData
 		], true);
 
-		sleep(rand(1, 10));
+		sleep(rand(2, 5));
 
 		// merchants
 		$reportsPage = $this->client->get('/berichte.php?t=4&opt=AAALAAwADQAOAA==',
